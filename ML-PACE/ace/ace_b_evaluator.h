@@ -6,14 +6,14 @@
 #define ACE_B_EVALUATOR_H
 
 
-#include "ace_arraynd.h"
-#include "ace_array2dlm.h"
-#include "ace_b_basis.h"
-#include "ace_complex.h"
-#include "ace_timing.h"
-#include "ace_types.h"
-#include "ace_evaluator.h"
-#include "ace_abstract_basis.h"
+#include "ace-evaluator/ace_arraynd.h"
+#include "ace-evaluator/ace_array2dlm.h"
+#include "ace/ace_b_basis.h"
+#include "ace-evaluator/ace_complex.h"
+#include "ace-evaluator/ace_timing.h"
+#include "ace-evaluator/ace_types.h"
+#include "ace-evaluator/ace_evaluator.h"
+#include "ace-evaluator/ace_abstract_basis.h"
 
 class ACEBEvaluator : public ACEEvaluator {
 
@@ -44,9 +44,6 @@ class ACEBEvaluator : public ACEEvaluator {
 
     void init(ACEBBasisSet *basis_set);
 
-    // active sets
-    map<SPECIES_TYPE, Array2D<DOUBLE_TYPE>> A_active_set_inv;
-
     bool is_linear_extrapolation_grade = true;
 
     void resize_projections();
@@ -56,6 +53,8 @@ class ACEBEvaluator : public ACEEvaluator {
     void validate_ASI_shape(const string &element_name, SPECIES_TYPE st, const vector<size_t> &shape);
 
 public:
+    // active sets
+    map<SPECIES_TYPE, Array2D<DOUBLE_TYPE>> A_active_set_inv;
 
     ACEBEvaluator() = default;
 
